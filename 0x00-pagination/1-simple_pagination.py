@@ -28,7 +28,7 @@ class Server:
         assert type(page_size) & page_size > 0
         pageWithBabyNames = self.dataset()
         try:
-            (startIdx, endIdx) = index_range(page, page_size)
+            startIdx, endIdx = index_range(page, page_size)
             return pageWithBabyNames[startIdx:endIdx]
         except IndexError:
             return []
