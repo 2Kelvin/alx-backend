@@ -24,11 +24,11 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         '''returns a page's data'''
-        assert isinstance(page, int) & page > 0
-        assert isinstance(page_size, int) & page_size > 0
+        assert type(page) is int & page > 0
+        assert type(page_size) & page_size > 0
         pageWithBabyNames = self.dataset()
         try:
-            startIdx, endIdx = index_range(page, page_size)
+            (startIdx, endIdx) = index_range(page, page_size)
             return pageWithBabyNames[startIdx:endIdx]
         except IndexError:
             return []
