@@ -23,7 +23,7 @@ class LIFOCache(BaseCaching):
                     lastCacheKey = list(self.cache_data.keys())[-1]
                     # discarding the last item
                     del self.cache_data[lastCacheKey]
-                    print(f'DISCARD: {lastCacheKey}\n')
+                    print(f'DISCARD: {lastCacheKey}')
 
             self.cache_data[key] = item
             self.cache_data.move_to_end(key, last=True)

@@ -15,7 +15,7 @@ class FIFOCache(BaseCaching):
             firstCacheKey = list(self.cache_data.keys())[0]
             # discard the first item
             del self.cache_data[firstCacheKey]
-            print(f'DISCARD: {firstCacheKey}\n')
+            print(f'DISCARD: {firstCacheKey}')
 
     def get(self, key):
         '''retrieve cache data'''
