@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+'''Basic babel setup'''
+from flask import Flask, render_template
+from flask_babel import Babel
+
+
+class Config:
+    '''class containing languages prop'''
+    LANGUAGES = ['en', 'fr']
+    default_locale = 'en'
+    default_timezone = 'UTC'
+
+
+app = Flask(__name__)
+app.config.from_object(Config)
+babel = Babel(app)
+
+
+@app.route('/')
+def index() -> str:
+    '''Renders 1-index.html template'''
+    return render_template('1-index.html')
