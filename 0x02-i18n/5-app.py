@@ -34,21 +34,21 @@ def get_locale() -> str:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-def get_user() -> Union[Dict, None]:
-    '''returns a user dictionary'''
-    loginId = request.args.get('login_as')
-    if loginId in users:
-        return users[loginId]
-    return None
-
-
 @app.before_request
 def before_request():
     '''sets a user as a global'''
     g.user = get_user()
 
 
+def get_user() -> Union[Dict, None]:
+    '''returns a user dictionary'''
+    loginId = request.args.get('login_as')
+    if loginId and int(loginId) in users.keys():
+        return users[int(loginId)]
+    return None
+
+
 @app.route('/')
 def index() -> str:
     '''Renders 5-index.html template'''
-    return render_template('5-index.html')
+    return render_template('5-index.html', user=g.user)
