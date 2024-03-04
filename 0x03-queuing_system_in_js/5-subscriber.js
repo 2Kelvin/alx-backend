@@ -18,9 +18,9 @@ redisClient.subscribe('holberton school channel');
 
 // displaying channel messages
 redisClient.on('message', (err, channelMsg) => {
-    if (channelMsg === 'KILL_SERVER') {
-      redisClient.unsubscribe();
-      redisClient.quit();
-    }
+  if (channelMsg === 'KILL_SERVER') {
+    redisClient.unsubscribe();
+    redisClient.quit();
+  }
   console.log(channelMsg);
 });
