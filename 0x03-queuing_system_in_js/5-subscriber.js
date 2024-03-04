@@ -16,7 +16,7 @@ redisClient.on('connect', () => (
 // subscribing to the channel
 redisClient.subscribe('holberton school channel');
 
-// displaying channel messages
+// subscribing to a channel, listening for channel messages & displaying them
 redisClient.on('message', (err, channelMsg) => {
   if (channelMsg === 'KILL_SERVER') {
     redisClient.unsubscribe();
